@@ -29,11 +29,23 @@
     <section class="grid-1">
       <div class="title flex-col item-baseline">
         <img src="image/merry.png" />
-        <div class="countdown"></div>
+        <div class="countdown">
+          크리스마스까지 <span id="countdown" class="countdown"></span> 남음
+        </div>
+        <div class="flex-row">
+          <audio
+            class="bgm"
+            src="carol.mp3"
+            preload="auto"
+            style="display: none"
+          ></audio>
+          <div class="sound"></div>
+          <div class="sound stop"></div>
+        </div>
       </div>
       <div class="day-1">
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" id="checkbox" />
           <div class="door">
             <div class="front">
               <span class="date-num">1</span>
@@ -296,19 +308,8 @@
         </label>
       </div>
     </section>
-    <footer>
-      <div class="flex-row">
-        <audio
-          class="bgm"
-          src="carol.mp3"
-          preload="auto"
-          style="display: none"
-        ></audio>
-        <div class="sound"></div>
-        <div class="sound stop"></div>
-      </div>
-    </footer>
-    <script src="index.js"></script>
-    <script src="music.js"></script>
+    <script type="module" src="/src/index.js"></script>
+    <!-- <script src="music.js"></script>
+    <script src="countdown.js"></script> -->
   </body>
 </html>

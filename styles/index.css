@@ -1,5 +1,9 @@
+@import url("snow.css");
+@import url("card.css");
+@import url("modal.css");
+
 body {
-  background-image: url("image/bg.png");
+  background-image: url("/image/bg.png");
   background-size: cover;
   background-position: center;
 }

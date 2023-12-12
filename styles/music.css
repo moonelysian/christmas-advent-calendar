@@ -7,7 +7,7 @@
   color: white;
   text-align: center;
   margin: 1rem 1rem 1rem 0;
-  background-image: url("/image/sound_on.png");
+  background-image: url("../image/sound_on.png");
   background-position: center;
   background-size: cover;
   cursor: pointer;
@@ -15,5 +15,5 @@
 
 /* 음악 중단 버튼 */
 .stop {
-  background-image: url("/image/sound_off.png");
+  background-image: url("../image/sound_off.png");
 }

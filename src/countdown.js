@@ -1,13 +1,12 @@
 import { handleModal, modalMessageList } from "./modal.js";
 
-const targetDate = new Date("2023-12-25T00:00:00Z");
+// 현재 한국 시간을 얻어오기
+const now = new Date(
+  new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" })
+);
+const targetDate = new Date(`${now.getFullYear()}-12-25T00:00:00Z`);
 
 export function updateCountdown() {
-  // 현재 한국 시간을 얻어오기
-  const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" })
-  );
-
   // 남은 시간 계산
   const timeRemaining = targetDate - now;
 
@@ -31,21 +30,18 @@ const doors = document.querySelectorAll(".door");
 
 doors.forEach((door, index) => {
   const checkbox = door.parentElement.getElementsByTagName("input").item(0);
-
-  const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" })
-  );
-
-  const openDate = new Date(2023, 11, index + 1);
+  const currentYear = now.getFullYear();
+  const currentMounth = now.getMonth() + 1;
+  const openDate = new Date(currentYear, 11, index + 1);
 
   if (now.getDate() > openDate.getDate()) {
-    checkbox.checked = true;
+    checkbox.checked = currentMounth === 12;
     checkbox.disabled = true;
   }
 
   door.addEventListener("click", () => {
     if (checkbox.checked && !checkbox.disabled) return;
-    if (now.getTime() > openDate.getTime()) {
+    if (currentMounth === 12 && now.getTime() > openDate.getTime()) {
       const imageUrl = `image/card/card-${index + 1}.png`;
       const text = modalMessageList[index]["message"];
       return handleModal(imageUrl, text);
